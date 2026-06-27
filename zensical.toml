@@ -1,0 +1,49 @@
+[project]
+site_name        = "GRIMMoire · Python Beginner Path"
+site_description = "A beginner Python curriculum from the Grimm Club — from first command to published package."
+site_url         = "https://thegrimmclub.github.io/grimmoire"
+repo_url         = "https://github.com/TheGrimmClub/grimmoire"
+repo_name        = "TheGrimmClub/grimmoire"
+docs_dir         = "python/beginners"
+copyright        = "Copyright &copy; 2026 Grimm Club"
+
+nav = [
+  { "01 · Commands & Calls"    = "01-commands-and-calls.md"    },
+  { "02 · Imports"              = "02-imports.md"              },
+  { "03 · argparse"             = "03-argparse.md"             },
+  { "04 · Variables & Values"  = "04-variables-and-values.md" },
+  { "05 · Debugger"             = "05-debugger.md"             },
+  { "06 · Conditions"           = "06-conditions.md"           },
+  { "07 · Loops & Controls"    = "07-loops-and-loop-controls.md" },
+  { "08 · Functions"            = "08-functions.md"            },
+  { "09 · Classes"              = "09-classes.md"              },
+  { "10 · Tooling · uv"        = "10-tooling-uv.md"           },
+  { "11 · Create Your Package" = "11-create-your-package.md"  },
+]
+
+[project.theme]
+name    = "material"
+language = "en"
+
+[project.theme.palette]
+scheme  = "slate"
+primary = "yellow"
+accent  = "amber"
+
+[project.theme.font]
+text = "Inter"
+code = "JetBrains Mono"
+
+[project.theme.features]
+navigation.instant  = true
+navigation.tracking = true
+navigation.top      = true
+content.code.copy   = true
+
+[project.markdown_extensions.pymdownx.highlight]
+anchor_linenums = true
+
+[project.markdown_extensions.pymdownx.superfences]
+[project.markdown_extensions.pymdownx.inlinehilite]
+[project.markdown_extensions.admonition]
+[project.markdown_extensions.tables]
