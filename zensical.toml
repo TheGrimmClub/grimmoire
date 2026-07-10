@@ -8,6 +8,7 @@ docs_dir         = "python/beginners"
 copyright        = "Copyright &copy; 2026 Grimm Club"
 
 nav = [
+  { "Home"                         = "index.md"                 },
   { "00 · Manifest der Lernkultur" = "00-manifest.md"          },
   { "01 · Commands & Calls"    = "01-commands-and-calls.md"    },
   { "02 · Imports"              = "02-imports.md"              },
