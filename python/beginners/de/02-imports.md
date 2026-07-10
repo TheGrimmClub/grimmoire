@@ -89,13 +89,9 @@ Deshalb funktioniert `from grimm import Actor`, sobald du im
     dann führe in einer REPL `from grimm import Actor` aus und erstelle einen.
 
 ??? tip "Lösung für Übung 1"
-    <!-- snippet: 02-random-direction.py -->
     ```python
-    import random
-
-    print("Du gehst nach", random.choice(["Nord", "Süd", "Ost", "West"]))
+    --8<-- "snippets/02-random-direction.py"
     ```
-    <!-- endsnippet -->
 
 ## Zusammenfassung
 

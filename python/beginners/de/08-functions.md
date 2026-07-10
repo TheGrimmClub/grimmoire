@@ -108,15 +108,9 @@ Ergebnis zurück. Kleine Funktionen, kombiniert, werden zu einem Programm.
     `damage`- und `heal`-Aufrufe und füttere das Ergebnis jedes Mal zurück.
 
 ??? tip "Lösung für Übung 1"
-    <!-- snippet: 08-shout.py -->
     ```python
-    def shout(text):
-        return text.upper()
-
-
-    print(shout("hallo"))   # HALLO
+    --8<-- "snippets/08-shout.py"
     ```
-    <!-- endsnippet -->
 
 ## Zusammenfassung
 

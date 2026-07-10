@@ -91,13 +91,9 @@ your terminal.
     colour of your choice using `from rich import print` and `[colour]...[/]`.
 
 ??? tip "Hint"
-    <!-- snippet: 10-rich.py -->
     ```python
-    from rich import print
-
-    print("[green]Hänsel[/] betritt den Wald.")
+    --8<-- "snippets/10-rich.py"
     ```
-    <!-- endsnippet -->
 
 ## Recap
 

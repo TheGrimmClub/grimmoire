@@ -79,20 +79,9 @@ fügt ihn hinzu. `type=int` wandelt den Text `"25"` in die Zahl `25`.
     hinzu, das zusätzlich `🕯️` ausgibt.
 
 ??? tip "Lösung"
-    <!-- snippet: 03-enter.py -->
     ```python
-    import argparse
-
-    parser = argparse.ArgumentParser()
-    parser.add_argument("name")
-    parser.add_argument("--torch", action="store_true")
-    args = parser.parse_args()
-
-    print(f"{args.name} betritt das Verlies.")
-    if args.torch:
-        print("🕯️")
+    --8<-- "snippets/03-enter.py"
     ```
-    <!-- endsnippet -->
     ```sh
     python enter.py Gretel --torch
     ```

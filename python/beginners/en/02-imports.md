@@ -86,13 +86,9 @@ project — the `grimm/` folder sits right there.
     then in a REPL run `from grimm import Actor` and make one.
 
 ??? tip "Solution for Übung 1"
-    <!-- snippet: 02-random-direction.py -->
     ```python
-    import random
-
-    print("Du gehst nach", random.choice(["Nord", "Süd", "Ost", "West"]))
+    --8<-- "snippets/02-random-direction.py"
     ```
-    <!-- endsnippet -->
 
 ## Recap
 

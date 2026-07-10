@@ -77,20 +77,9 @@ parser.add_argument("--hp", type=int, default=100)    # a value, converted to in
     prints `🕯️`.
 
 ??? tip "Solution"
-    <!-- snippet: 03-enter.py -->
     ```python
-    import argparse
-
-    parser = argparse.ArgumentParser()
-    parser.add_argument("name")
-    parser.add_argument("--torch", action="store_true")
-    args = parser.parse_args()
-
-    print(f"{args.name} betritt das Verlies.")
-    if args.torch:
-        print("🕯️")
+    --8<-- "snippets/03-enter.py"
     ```
-    <!-- endsnippet -->
     ```sh
     python enter.py Gretel --torch
     ```

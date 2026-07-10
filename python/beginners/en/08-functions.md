@@ -104,15 +104,9 @@ back in. Small functions, combined, become a program.
     `heal` calls, feeding the result back each time.
 
 ??? tip "Solution for Übung 1"
-    <!-- snippet: 08-shout.py -->
     ```python
-    def shout(text):
-        return text.upper()
-
-
-    print(shout("hallo"))   # HALLO
+    --8<-- "snippets/08-shout.py"
     ```
-    <!-- endsnippet -->
 
 ## Recap
 

@@ -93,13 +93,9 @@ mit Farbe in deinem Terminal.
     `[farbe]...[/]`.
 
 ??? tip "Tipp"
-    <!-- snippet: 10-rich.py -->
     ```python
-    from rich import print
-
-    print("[green]Hänsel[/] betritt den Wald.")
+    --8<-- "snippets/10-rich.py"
     ```
-    <!-- endsnippet -->
 
 ## Zusammenfassung
 

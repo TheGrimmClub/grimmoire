@@ -145,16 +145,9 @@ Druckform mit der Zeit. Das ist Zustand.
     an einer Stelle lebt.
 
 ??? tip "Lösung für Übung 2"
-    <!-- snippet: 09-location.py -->
     ```python
-    def location(self):
-        return "im Verlies" if self._in_dungeon else "vor dem Verlies"
-
-
-    def __str__(self):
-        return f"🧍 {self._name} wartet {self.location()}."
+    --8<-- "snippets/09-location.py"
     ```
-    <!-- endsnippet -->
 
 !!! tip "Die echte Sache"
     `grimm.Dungeon().enter()` ist selbst eine Klasse — eine, die eine Tür zum

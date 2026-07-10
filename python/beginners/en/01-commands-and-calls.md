@@ -125,14 +125,9 @@ Python runs the file **top to bottom**, one line at a time. Order matters.
     the forest. Run it with `python wald.py`.
 
 ??? tip "Stuck? A worked solution"
-    <!-- snippet: 01-wald.py -->
     ```python
-    # wald.py
-    print("Ich stehe am Waldrand.")
-    print("Drei Männlein winken mir zu.")
-    print("Ich gehe hinein.")
+    --8<-- "snippets/01-wald.py"
     ```
-    <!-- endsnippet -->
     ```sh
     python wald.py
     ```
