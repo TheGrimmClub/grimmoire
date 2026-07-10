@@ -2,6 +2,10 @@
 
 > Dingen Namen geben, damit dein Programm sie sich merken kann.
 
+Ein Programm, das sich nichts merken kann, kann nicht viel. **Variablen** sind,
+wie Python einen Wert festhält — einen Namen, eine Zahl, eine ganze Liste —,
+damit du ihn später nutzen kannst.
+
 ## Was du lernst
 
 - Was eine **Variable** ist (ein Name, der auf einen Wert zeigt)
@@ -9,41 +13,37 @@
 - Sammlungen: `list` und `dict`
 - Wie man einen Wert mit `type(...)` untersucht
 
-## Die Idee
+## Namen und Werte
 
-Eine **Variable** ist ein Etikett, das du auf einen Wert klebst:
+Eine **Variable** ist ein Etikett, das du mit `=` auf einen Wert klebst:
 
 ```python
 name = "avatar-name"   # str  (Text)
-leben = 100            # int  (ganze Zahl)
+hp = 100               # int  (ganze Zahl)
 tempo = 3.5            # float (Kommazahl)
 lebendig = True        # bool  (True / False)
 ```
 
-Werte haben **Typen**. `type(...)` sagt dir, welchen:
+Der Name steht links, der Wert rechts. Später *steht* der Name für den Wert:
 
 ```python
-print(type(leben))     # <class 'int'>
+print(hp)          # 100
+hp = hp - 10       # den alten Wert lesen, einen neuen speichern
+print(hp)          # 90
 ```
 
-Sammlungen halten viele Werte:
+!!! note "= ist nicht gleich"
+    In der Mathematik heißt `=` „ist gleich“. In Python heißt `=` **„lege diesen
+    Wert in diesen Namen“**. Zum *Vergleichen* nutzt du `==` (nächstes Kapitel).
+
+## Typen
+
+Jeder Wert hat einen **Typ**. `type(...)` sagt dir, welchen:
 
 ```python
-inventar = ["Schwert", "Brot", "Schlüssel"]   # list — geordnet
-held = {"name": "Hans", "hp": 100}             # dict — Schlüssel → Wert
-
-print(inventar[0])     # Schwert
-print(held["hp"])      # 100
+print(type(hp))       # <class 'int'>
+print(type(name))     # <class 'str'>
 ```
-
-## Probier es
-
-!!! example "Übung"
-    Erstelle Variablen für einen Helden: `name`, `hp` und eine `inventar`-Liste.
-    Gib einen Satz mit einem f-String aus:
-    `f"{name} hat {hp} HP und trägt {inventar}."`
-
-## Spickzettel
 
 | Typ | Beispiel | Ist |
 |-----|----------|-----|
@@ -51,8 +51,55 @@ print(held["hp"])      # 100
 | `float` | `3.14` | Kommazahl |
 | `str` | `"Grimm"` | Text |
 | `bool` | `True` | ja/nein |
-| `list` | `[1, 2, 3]` | geordnete Sammlung |
-| `dict` | `{"k": "v"}` | Schlüssel→Wert-Zuordnung |
+
+Der Typ zählt: `"5" + "5"` ist `"55"` (Text verbunden), aber `5 + 5` ist `10`
+(Zahlen addiert). Sie zu mischen ist ein Fehler — `"5" + 5` wirft `TypeError`.
+
+## Sammlungen
+
+Wenn du *viele* Werte brauchst, nimm eine **Liste** (geordnet) oder ein **dict**
+(beschriftet):
+
+```python
+inventar = ["Schwert", "Brot", "Schlüssel"]   # list
+held = {"name": "Hans", "hp": 100}             # dict
+
+print(inventar[0])     # Schwert   — Listen zählen ab 0
+print(held["hp"])      # 100       — dicts suchen per Schlüssel
+
+inventar.append("Fackel")   # zur Liste hinzufügen
+```
+
+## Probier es
+
+!!! example "Übung — ein Heldenblatt"
+    Erstelle Variablen für einen Helden: `name`, `hp` (ein int) und eine
+    `inventory`-Liste. Gib einen Satz mit einem f-String aus:
+    `f"{name} hat {hp} HP und trägt {inventory}."`
+
+??? tip "Lösung"
+    ```python
+    --8<-- "snippets/04-hero.py"
+    ```
+
+## Zusammenfassung
+
+- Eine **Variable** ist ein Name, der auf einen Wert zeigt; `=` weist zu, `==`
+  vergleicht.
+- Werte haben **Typen**: `int`, `float`, `str`, `bool`.
+- **Listen** sind geordnet (`inventory[0]`), **dicts** suchen per Schlüssel
+  (`hero["hp"]`).
+- `type(x)` sagt dir den Typ.
+
+## Spickzettel
+
+| Teil | Bedeutet |
+|------|----------|
+| `x = 5` | `5` in den Namen `x` legen |
+| `type(x)` | der Typ von `x` |
+| `[1, 2, 3]` | eine Liste (geordnet) |
+| `{"k": "v"}` | ein dict (Schlüssel→Wert) |
+| `lst[0]` / `d["k"]` | per Index / Schlüssel lesen |
 
 ---
 

@@ -2,6 +2,9 @@
 
 > Etwas wiederholen — und wissen, wann man aufhört.
 
+Computer sind großartig im Wiederholen. Eine **Schleife** führt denselben Block
+viele Male aus, sodass du ihn einmal schreibst, statt ihn hundertmal zu kopieren.
+
 ## Was du lernst
 
 - `for`-Schleifen über eine Sammlung
@@ -9,52 +12,91 @@
 - `range(...)` zum Zählen
 - `break` und `continue`, um eine Schleife zu lenken
 
-## Die Idee
+## for: durch eine Sammlung gehen
 
-Eine **Schleife** wiederholt einen Block. Eine `for`-Schleife geht durch eine
-Sammlung:
+Eine `for`-Schleife nimmt jeden Gegenstand einer Sammlung der Reihe nach:
 
 ```python
-for gegenstand in ["Schwert", "Brot", "Schlüssel"]:
-    print("Du trägst:", gegenstand)
+for item in ["Schwert", "Brot", "Schlüssel"]:
+    print("Du trägst:", item)
 ```
 
-Zählen mit `range`:
+Der eingerückte Körper läuft einmal pro Gegenstand, mit `item` auf jeden Wert
+gesetzt.
+
+## range: zählen
+
+`range` macht eine Folge von Zahlen — praktisch, um eine feste Anzahl von Malen
+zu wiederholen:
 
 ```python
 for i in range(3):        # 0, 1, 2
     print("Schritt", i)
+
+for i in range(1, 4):     # 1, 2, 3  (Start, Stopp)
+    print(i)
 ```
 
-Eine `while`-Schleife läuft, bis ihre Bedingung `False` wird:
+`range(n)` stoppt *vor* `n`, also gibt `range(3)` `0, 1, 2` — drei Werte.
+
+## while: bis sich eine Bedingung ändert
+
+Eine `while`-Schleife wiederholt, **solange** ihre Bedingung `True` ist:
 
 ```python
-fackeln = 3
-while fackeln > 0:
+torches = 3
+while torches > 0:
     print("Eine Fackel brennt.")
-    fackeln = fackeln - 1
-```
-
-Von innen lenken:
-
-```python
-for tuer in tueren:
-    if tuer == "verschlossen":
-        continue       # diese überspringen, zur nächsten
-    if tuer == "Ausgang":
-        break          # die Schleife ganz verlassen
+    torches = torches - 1     # bewege dich zum Ende!
 ```
 
 !!! warning "Endlosschleife"
-    Ein `while`, dessen Bedingung nie `False` wird, läuft ewig. Sorge dafür, dass
-    sich innen etwas ändert. `Strg+C` stoppt ein außer Kontrolle geratenes
+    Wenn die Bedingung nie `False` wird, läuft die Schleife ewig. Sorge dafür,
+    dass sich innen etwas ändert. `Strg+C` stoppt ein außer Kontrolle geratenes
     Programm.
+
+## break und continue
+
+Lenke eine Schleife von innen:
+
+```python
+for door in doors:
+    if door == "verschlossen":
+        continue       # diese überspringen, zur nächsten
+    if door == "Ausgang":
+        break          # die Schleife ganz verlassen
+    print("Du öffnest:", door)
+```
+
+- `continue` — den Rest *dieser* Runde überspringen, zur nächsten.
+- `break` — die ganze Schleife jetzt stoppen.
 
 ## Probier es
 
-!!! example "Übung"
-    Geh mit `range(1, 11)` durch und gib nur die geraden Zahlen aus (Tipp:
-    `% 2 == 0`).
+!!! example "Übung — nur die geraden"
+    Geh mit `range(1, 11)` durch und gib nur die geraden Zahlen aus. Tipp: eine
+    Zahl ist gerade, wenn `n % 2 == 0` (`%` ist der Rest).
+
+??? tip "Lösung"
+    ```python
+    --8<-- "snippets/07-evens.py"
+    ```
+
+## Zusammenfassung
+
+- `for` geht durch eine Sammlung; `while` wiederholt, bis eine Bedingung kippt.
+- `range(n)` zählt `0 … n-1`; `range(a, b)` zählt `a … b-1`.
+- `continue` überspringt eine Runde; `break` beendet die Schleife.
+- Sorge immer dafür, dass ein `while` enden kann.
+
+## Spickzettel
+
+| Teil | Tut |
+|------|-----|
+| `for x in seq:` | einmal pro Gegenstand laufen |
+| `range(n)` | `0 … n-1` |
+| `while cond:` | wiederholen, solange `cond` wahr ist |
+| `continue` / `break` | eine Runde überspringen / die Schleife beenden |
 
 ---
 
