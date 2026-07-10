@@ -99,20 +99,24 @@ Ergebnis zurück. Kleine Funktionen, kombiniert, werden zu einem Programm.
 ## Probier es
 
 !!! example "Übung 1 — laut grüßen"
-    Schreibe `schrei(text)`, das `text` in Großbuchstaben zurückgibt (Tipp:
-    Strings haben eine Methode `.upper()`). Teste es mit `print(schrei("hallo"))`.
+    Schreibe `shout(text)`, das `text` in Großbuchstaben zurückgibt (Tipp:
+    Strings haben eine Methode `.upper()`). Teste es mit `print(shout("hallo"))`.
+    (Bezeichner im Code sind auf Englisch — nur die Erzählung ist Deutsch.)
 
 !!! example "Übung 2 — heilen"
-    Schreibe `heile(hp, menge=20)`, das die neue hp zurückgibt. Verkette ein paar
-    `schaden`- und `heile`-Aufrufe und füttere das Ergebnis jedes Mal zurück.
+    Schreibe `heal(hp, amount=20)`, das die neue hp zurückgibt. Verkette ein paar
+    `damage`- und `heal`-Aufrufe und füttere das Ergebnis jedes Mal zurück.
 
 ??? tip "Lösung für Übung 1"
+    <!-- snippet: 08-shout.py -->
     ```python
-    def schrei(text):
+    def shout(text):
         return text.upper()
 
-    print(schrei("hallo"))   # HALLO
+
+    print(shout("hallo"))   # HALLO
     ```
+    <!-- endsnippet -->
 
 ## Zusammenfassung
 

@@ -107,6 +107,7 @@ selbst wird genau so veröffentlicht — über einen automatischen Release auf G
     `task test` zum Bestehen.
 
 ??? tip "Ein Anfangstest"
+    <!-- snippet: 11-test-leave.py -->
     ```python
     def test_leave_dungeon_changes_state():
         me = Actor()
@@ -114,6 +115,7 @@ selbst wird genau so veröffentlicht — über einen automatischen Release auf G
         me.leave_dungeon()
         assert "vor dem Verlies" in str(me)
     ```
+    <!-- endsnippet -->
 
 ## Zusammenfassung
 

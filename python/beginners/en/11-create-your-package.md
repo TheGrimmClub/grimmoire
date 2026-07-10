@@ -103,6 +103,7 @@ itself is published exactly this way — via an automated release on GitHub.
     pass.
 
 ??? tip "A starting test"
+    <!-- snippet: 11-test-leave.py -->
     ```python
     def test_leave_dungeon_changes_state():
         me = Actor()
@@ -110,6 +111,7 @@ itself is published exactly this way — via an automated release on GitHub.
         me.leave_dungeon()
         assert "vor dem Verlies" in str(me)
     ```
+    <!-- endsnippet -->
 
 ## Recap
 

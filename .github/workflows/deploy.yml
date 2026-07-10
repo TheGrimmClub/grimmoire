@@ -33,6 +33,9 @@ jobs:
       - name: Install Zensical
         run: pip install zensical==0.0.50
 
+      - name: Check snippets are in sync
+        run: python3 scripts/render_snippets.py --check
+
       - name: Build site
         run: zensical build --strict # fail the build on warnings
 

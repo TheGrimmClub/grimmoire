@@ -131,12 +131,14 @@ Die Reihenfolge zählt.
     Mini-Szene im Wald erzählen. Führe sie mit `python wald.py` aus.
 
 ??? tip "Steckst du fest? Eine Musterlösung"
+    <!-- snippet: 01-wald.py -->
     ```python
     # wald.py
     print("Ich stehe am Waldrand.")
     print("Drei Männlein winken mir zu.")
     print("Ich gehe hinein.")
     ```
+    <!-- endsnippet -->
     ```sh
     python wald.py
     ```

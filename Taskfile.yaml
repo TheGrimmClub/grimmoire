@@ -1,0 +1,37 @@
+version: '3'
+
+# grimmoire — the bilingual Zensical docs site.
+# Solution code is single-sourced from python/beginners/snippets/*.py and
+# injected into the language pages by scripts/render_snippets.py.
+
+vars:
+  ZENSICAL: zensical@0.0.50
+
+tasks:
+  default:
+    desc: List available tasks
+    cmds:
+      - task --list
+    silent: true
+
+  docs:render:
+    desc: Inject shared snippet code into the EN/DE pages (idempotent)
+    cmds:
+      - python3 scripts/render_snippets.py
+
+  docs:check:
+    desc: Fail if any page's snippet blocks are out of date (CI guard)
+    cmds:
+      - python3 scripts/render_snippets.py --check
+
+  docs:build:
+    desc: Render snippets, then build the site into site/
+    cmds:
+      - task: docs:render
+      - uvx {{.ZENSICAL}} build --strict
+
+  docs:serve:
+    desc: Render snippets, then serve the site locally
+    cmds:
+      - task: docs:render
+      - uvx {{.ZENSICAL}} serve
