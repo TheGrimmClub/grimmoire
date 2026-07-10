@@ -23,6 +23,7 @@ nav = [
     { "09 · Classes"             = "en/09-classes.md"              },
     { "10 · Tooling · uv"        = "en/10-tooling-uv.md"           },
     { "11 · Create Your Package" = "en/11-create-your-package.md"  },
+    { "grimm · API Reference"    = "en/api-reference.md"           },
   ]},
   { "Deutsch" = [
     { "Übersicht"                = "de/index.md"                   },
