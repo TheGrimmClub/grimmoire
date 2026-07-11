@@ -101,13 +101,13 @@ Dungeon().status()         # {'binary': …, 'source': …, 'workspace': …, 'b
 ## Game
 
 `grimm.game.Game` — a read/write view of the dungeon's save,
-`~/.grimm/save.yaml`. A tiny purpose-built YAML reader/emitter keeps the package
+`~/.grimm/save.syon`. A tiny purpose-built SYON reader/emitter keeps the package
 dependency-free and the output exactly what the Go game reads.
 
 ### Constructor
 
 ```python
-Game(path=None)   # loads ~/.grimm/save.yaml automatically, if it exists
+Game(path=None)   # loads ~/.grimm/save.syon automatically, if it exists
 ```
 
 ### Attributes (loaded on construction)
@@ -126,7 +126,7 @@ Game(path=None)   # loads ~/.grimm/save.yaml automatically, if it exists
 
 | Method | Returns | Description |
 |--------|---------|-------------|
-| `default_path()` *(static)* | `Path` | `~/.grimm/save.yaml` |
+| `default_path()` *(static)* | `Path` | `~/.grimm/save.syon` |
 | `exists()` | `bool` | whether a save file is present |
 | `load()` | `Game` | (re)read & parse; returns `self` (raises `FileNotFoundError` if none) |
 | `summary(names=None)` | `str` | a human-readable report; pass `Dungeon().world_names()` for full names |
@@ -144,12 +144,12 @@ All mutators **return `self`** (chainable) and skip duplicates; `write()` persis
 | `visit(*rooms)` | mark room ids visited |
 | `solve(*puzzles)` | mark puzzle ids solved |
 | `go(room)` | set the current room |
-| `write(path=None)` | write YAML the dungeon can load; returns the path |
+| `write(path=None)` | write SYON the dungeon can load; returns the path |
 
 ```python
 game = Game()
 game.grant("zeitsiegel").wear("helm").visit("archiv").solve("repo-tor").go("halle")
-game.write()   # ~/.grimm/save.yaml — verified to load in the Go game's state.Load
+game.write()   # ~/.grimm/save.syon — verified to load in the Go game's state.Load
 ```
 
 !!! warning "Save version"
@@ -160,28 +160,28 @@ game.write()   # ~/.grimm/save.yaml — verified to load in the Go game's state.
 
 ## Save file format
 
-`~/.grimm/save.yaml` — written by `grimm__dungeon__mono` (Go, `yaml.v3`) and by
-`Game.write()`:
+`~/.grimm/save.syon` — SYON (safe YAML), written by `grimm__dungeon__mono` (Go,
+native SYON parser) and by `Game.write()`:
 
 ```yaml
 version: 1
 game:
-    title: Jäger
-    location: archiv
-    inventory:
-        - helm
-        - nanostaub
-    worn:
-        - helm
-    visited:
-        - archiv
-        - tor
-    solved:
-        - repo-tor
+  title: Jäger
+  location: archiv
+  inventory:
+    - helm
+    - nanostaub
+  worn:
+    - helm
+  visited:
+    - archiv
+    - tor
+  solved:
+    - repo-tor
 ```
 
-Empty lists become `inventory: []`. Ids (rooms, items, puzzles) come from the
-world content in `grimm__dungeon__mono/content/world/*.yaml`.
+Empty lists are a bare `inventory:` (SYON has no `[]` flow). Ids (rooms, items,
+puzzles) come from the world content in `grimm__dungeon__mono/content/world/*.syon`.
 
 ---
 
@@ -192,8 +192,8 @@ grimmoire (learn)            grimm__python__zero (build)       grimm__dungeon__m
 ─────────────────            ──────────────────────────       ───────────────────────────
 Actor / Dungeon / Game     → from grimm import Actor        → puzzles run python3 loesung.py
                              Dungeon().enter() ─────────────→   (work dir seeded → import Actor)
-Dungeon().show()  ←───────── reads  ~/.grimm/save.yaml  ←────  the game writes progress
-Game().grant(...).write()   → writes ~/.grimm/save.yaml ────→  state.Load reads it back
+Dungeon().show()  ←───────── reads  ~/.grimm/save.syon  ←────  the game writes progress
+Game().grant(...).write()   → writes ~/.grimm/save.syon ────→  state.Load reads it back
 ```
 
 - **Learn** the concepts here in the Grimmoire.
