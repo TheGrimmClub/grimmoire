@@ -8,10 +8,10 @@ public classes:
 |-------|------------|
 | [`Actor`](#actor) | your first Python class — a character in the Grimm world |
 | [`Dungeon`](#dungeon) | a launcher/on-ramp to the real `grimm__dungeon__mono` adventure |
-| [`SaveGame`](#savegame) | a read **and write** view of the dungeon's saved game |
+| [`Game`](#game) | a read **and write** view of the dungeon's saved game |
 
 ```python
-from grimm import Actor, Dungeon, SaveGame
+from grimm import Actor, Dungeon, Game
 ```
 
 The package is **dependency-free** and targets **Python ≥ 3.9**.
@@ -77,9 +77,9 @@ Dungeon(executable=None, source=None)
 | `home()` *(static)* | `Path` | `~/.grimm` |
 | `workspace()` | `Path` | `~/.grimm/work` (created on demand) |
 | `seed_workspace()` | `Path` | write the `grimm` (Actor) package into `~/.grimm/work/grimm/`; idempotent |
-| `save()` | [`SaveGame`](#savegame) `\| None` | the saved game, or `None` |
+| `game()` | [`Game`](#game) `\| None` | the saved game, or `None` |
 | `world_names()` | `dict[str, str]` | map ids → human names from a nearby checkout (`helm` → `"Helm mit Stirnlampe"`) |
-| `show()` | `SaveGame \| None` | print a summary of the saved game (with names); returns it |
+| `show()` | `Game \| None` | print a summary of the saved game (with names); returns it |
 | `status()` | `dict` | `{binary, source, workspace, buildable}` |
 | `enter(build=True)` | `int` | resolve/build the binary, seed the work dir, set `GRIMM_BIN`, launch; grimm's exit code (or `1`) |
 
@@ -98,19 +98,19 @@ Dungeon().status()         # {'binary': …, 'source': …, 'workspace': …, 'b
 
 ---
 
-## SaveGame
+## Game
 
-`grimm.save.SaveGame` — a read/write view of the dungeon's save,
+`grimm.game.Game` — a read/write view of the dungeon's save,
 `~/.grimm/save.yaml`. A tiny purpose-built YAML reader/emitter keeps the package
 dependency-free and the output exactly what the Go game reads.
 
 ### Constructor
 
 ```python
-SaveGame(path=None)   # defaults to ~/.grimm/save.yaml
+Game(path=None)   # loads ~/.grimm/save.yaml automatically, if it exists
 ```
 
-### Attributes (after `load()`)
+### Attributes (loaded on construction)
 
 | Attribute | Type | Meaning |
 |-----------|------|---------|
@@ -128,9 +128,9 @@ SaveGame(path=None)   # defaults to ~/.grimm/save.yaml
 |--------|---------|-------------|
 | `default_path()` *(static)* | `Path` | `~/.grimm/save.yaml` |
 | `exists()` | `bool` | whether a save file is present |
-| `load()` | `SaveGame` | read & parse; returns `self` (raises `FileNotFoundError` if none) |
+| `load()` | `Game` | (re)read & parse; returns `self` (raises `FileNotFoundError` if none) |
 | `summary(names=None)` | `str` | a human-readable report; pass `Dungeon().world_names()` for full names |
-| `actor()` | [`Actor`](#actor) | an actor named after this save's class |
+| `actor()` | [`Actor`](#actor) | an actor named after this game's class |
 
 ### Writing
 
@@ -147,9 +147,9 @@ All mutators **return `self`** (chainable) and skip duplicates; `write()` persis
 | `write(path=None)` | write YAML the dungeon can load; returns the path |
 
 ```python
-save = SaveGame().load()
-save.grant("zeitsiegel").wear("helm").visit("archiv").solve("repo-tor").go("halle")
-save.write()   # ~/.grimm/save.yaml — verified to load in the Go game's state.Load
+game = Game()
+game.grant("zeitsiegel").wear("helm").visit("archiv").solve("repo-tor").go("halle")
+game.write()   # ~/.grimm/save.yaml — verified to load in the Go game's state.Load
 ```
 
 !!! warning "Save version"
@@ -161,7 +161,7 @@ save.write()   # ~/.grimm/save.yaml — verified to load in the Go game's state.
 ## Save file format
 
 `~/.grimm/save.yaml` — written by `grimm__dungeon__mono` (Go, `yaml.v3`) and by
-`SaveGame.write()`:
+`Game.write()`:
 
 ```yaml
 version: 1
@@ -190,17 +190,17 @@ world content in `grimm__dungeon__mono/content/world/*.yaml`.
 ```
 grimmoire (learn)            grimm__python__zero (build)       grimm__dungeon__mono (play)
 ─────────────────            ──────────────────────────       ───────────────────────────
-Actor / Dungeon / SaveGame → from grimm import Actor        → puzzles run python3 loesung.py
+Actor / Dungeon / Game     → from grimm import Actor        → puzzles run python3 loesung.py
                              Dungeon().enter() ─────────────→   (work dir seeded → import Actor)
 Dungeon().show()  ←───────── reads  ~/.grimm/save.yaml  ←────  the game writes progress
-SaveGame().grant(...).write() → writes ~/.grimm/save.yaml ──→  state.Load reads it back
+Game().grant(...).write()   → writes ~/.grimm/save.yaml ────→  state.Load reads it back
 ```
 
 - **Learn** the concepts here in the Grimmoire.
 - **Build** the `grimm` package ([11 · Create Your Package](11-create-your-package.md)).
 - **Play**: `Dungeon().enter()` launches the adventure; the
   [Lernpfad](https://github.com/TheGrimmClub/grimm__dungeon__mono) puzzles use your Python.
-- **Read/write** your progress with `Dungeon`/`SaveGame`.
+- **Read/write** your progress with `Dungeon`/`Game`.
 
 Runnable examples live in the package: `examples/step1.py … step4.py`
 (`task step1`, `task step2`, `task dungeon`, `task save`).
