@@ -58,9 +58,9 @@ Bring dich ein.
 
 ---
 
-## Unser Gelöbnis
+## Unser Versprechen
 
-Wir geloben:
+Wir verpflichten uns:
 - Unsere Fragen zu stellen, auch wenn sie klein oder offensichtlich wirken.
 - Unsere Fehler zu zeigen, nicht zu verstecken, weil Fehler dort sind, wo wir lernen.
 - Die Frage einer anderen Person als Mut zu sehen, nicht als Schwäche.
