@@ -1,0 +1,21 @@
+[project]
+name = "grimmoire"
+version = "0.1.0"
+description = "The Grimm Club spell book — a beginner Python curriculum, in two tongues."
+readme = "README.md"
+requires-python = ">=3.13"
+
+# Zensical is the only dependency: this project is a documentation site, not a
+# package. Pinned so a contributor's `uv run` and the Actions build agree — the
+# same version the Taskfile used to pass to `uvx`.
+dependencies = [
+    "zensical==0.0.50",
+]
+
+[dependency-groups]
+dev = []
+
+# Nothing here is importable, so there is no build backend and no packages to
+# discover. `uv run` only needs the dependency list above.
+[tool.uv]
+package = false

@@ -21,7 +21,7 @@ type a **command** and press Enter. It runs the command and shows the result.
 It's just a conversation: you say something, it answers.
 
 ```sh
-python --version      # ask which Python you have
+uv run python --version      # ask which Python you have
 ```
 
 ```
@@ -41,9 +41,9 @@ You typed a command; the shell answered. That's the whole loop, forever.
 There are three ways to run Python, from quickest to most useful:
 
 ```sh
-python                       # 1. start an interactive session (a REPL)
-python -c "print(2 + 2)"     # 2. run one line and exit
-python hello.py              # 3. run a whole file
+uv run python                        # 1. start an interactive session (a REPL)
+uv run python -c "print(2 + 2)"      # 2. run one line and exit
+uv run hello.py                      # 3. run a whole file
 ```
 
 The **REPL** (Read–Eval–Print Loop) is a Python shell *inside* your shell. You
@@ -71,8 +71,8 @@ print("Hallo, Grimm Club!")
 Without the brackets, you're only *pointing at* the function, not running it:
 
 ```python
-print          # <built-in function print>  — nothing happens
-print()        # (prints an empty line)      — it runs
+print        # <built-in function print>  — nothing happens
+print()      # (prints an empty line)      — it runs
 ```
 
 You can pass more than one argument, separated by commas:
@@ -93,7 +93,7 @@ print("Es ist dunkel.")
 Run it:
 
 ```sh
-python hello.py
+uv run hello.py
 ```
 
 ```
@@ -110,7 +110,7 @@ Python runs the file **top to bottom**, one line at a time. Order matters.
       `Hallo` and errors. Text needs quotes: `print("Hallo")`.
     - **Forgetting the brackets:** `print "hi"` is not a call in Python 3 — it's a
       `SyntaxError`. Always `print("hi")`.
-    - **Wrong folder:** `python hello.py` only works if you're *in* the folder
+    - **Wrong folder:** `uv run hello.py` only works if you're *in* the folder
       that holds `hello.py`. Use `ls` (macOS/Linux) or `dir` (Windows) to look
       around.
 
@@ -122,14 +122,14 @@ Python runs the file **top to bottom**, one line at a time. Order matters.
 
 !!! example "Übung 2 — a tiny scene"
     Make a file `wald.py` with three `print(...)` lines that tell a mini scene in
-    the forest. Run it with `python wald.py`.
+    the forest. Run it with `uv run wald.py`.
 
 ??? tip "Stuck? A worked solution"
     ```python
     --8<-- "snippets/01-wald.py"
     ```
     ```sh
-    python wald.py
+    uv run wald.py
     ```
 
 ## Recap
@@ -142,10 +142,10 @@ Python runs the file **top to bottom**, one line at a time. Order matters.
 
 | You want to… | Command |
 |--------------|---------|
-| Check your Python | `python --version` |
-| Start the REPL | `python` (leave with `exit()`) |
-| Run one line | `python -c "..."` |
-| Run a file | `python file.py` |
+| Check your Python | `uv run python --version` |
+| Start the REPL | `uv run python` (leave with `exit()`) |
+| Run one line | `uv run python -c "..."` |
+| Run a file | `uv run file.py` |
 | Print something | `print(value)` |
 
 ---

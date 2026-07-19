@@ -25,16 +25,23 @@ jobs:
         with:
           lfs: true # pull the LFS-tracked PNG artwork in case pages reference it
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
         with:
-          python-version: '3.13'
+          enable-cache: true
 
-      - name: Install Zensical
-        run: pip install zensical==0.0.50
+      # The interpreter comes from requires-python in pyproject.toml, so the
+      # build uses the same one a contributor gets locally.
+      - name: Install Python
+        run: uv python install
+
+      # --frozen fails rather than silently re-resolving: the lockfile is the
+      # contract between this build and everyone's `uv run`.
+      - name: Install dependencies
+        run: uv sync --frozen
 
       - name: Build site
-        run: zensical build --strict # fail the build on warnings
+        run: uv run zensical build --strict # fail the build on warnings
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

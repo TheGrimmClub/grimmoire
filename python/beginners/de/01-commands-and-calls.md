@@ -22,7 +22,7 @@ aus und zeigt das Ergebnis. Es ist einfach ein Gespräch: du sagst etwas, sie
 antwortet.
 
 ```sh
-python --version      # frag, welches Python du hast
+uv run python --version      # frag, welches Python du hast
 ```
 
 ```
@@ -44,9 +44,9 @@ Schleife, für immer.
 Es gibt drei Wege, Python auszuführen, vom schnellsten zum nützlichsten:
 
 ```sh
-python                       # 1. eine interaktive Sitzung starten (eine REPL)
-python -c "print(2 + 2)"     # 2. eine Zeile ausführen und beenden
-python hallo.py              # 3. eine ganze Datei ausführen
+uv run python                        # 1. eine interaktive Sitzung starten (eine REPL)
+uv run python -c "print(2 + 2)"      # 2. eine Zeile ausführen und beenden
+uv run hallo.py                      # 3. eine ganze Datei ausführen
 ```
 
 Die **REPL** (Read–Eval–Print Loop) ist eine Python-Shell *innerhalb* deiner
@@ -75,8 +75,8 @@ print("Hallo, Grimm Club!")
 Ohne die Klammern *zeigst* du nur auf die Funktion, du führst sie nicht aus:
 
 ```python
-print          # <built-in function print>  — nichts passiert
-print()        # (gibt eine leere Zeile aus) — sie läuft
+print        # <built-in function print>  — nichts passiert
+print()      # (gibt eine leere Zeile aus) — sie läuft
 ```
 
 Du kannst mehr als ein Argument übergeben, getrennt durch Kommas:
@@ -97,7 +97,7 @@ print("Es ist dunkel.")
 Führe sie aus:
 
 ```sh
-python hallo.py
+uv run hallo.py
 ```
 
 ```
@@ -116,7 +116,7 @@ Die Reihenfolge zählt.
       `print("Hallo")`.
     - **Klammern vergessen:** `print "hi"` ist in Python 3 kein Aufruf — es ist
       ein `SyntaxError`. Immer `print("hi")`.
-    - **Falscher Ordner:** `python hallo.py` funktioniert nur, wenn du *in* dem
+    - **Falscher Ordner:** `uv run hallo.py` funktioniert nur, wenn du *in* dem
       Ordner bist, der `hallo.py` enthält. Nutze `ls` (macOS/Linux) oder `dir`
       (Windows), um dich umzusehen.
 
@@ -128,14 +128,14 @@ Die Reihenfolge zählt.
 
 !!! example "Übung 2 — eine kleine Szene"
     Erstelle eine Datei `wald.py` mit drei `print(...)`-Zeilen, die eine
-    Mini-Szene im Wald erzählen. Führe sie mit `python wald.py` aus.
+    Mini-Szene im Wald erzählen. Führe sie mit `uv run wald.py` aus.
 
 ??? tip "Steckst du fest? Eine Musterlösung"
     ```python
     --8<-- "snippets/01-wald.py"
     ```
     ```sh
-    python wald.py
+    uv run wald.py
     ```
 
 ## Zusammenfassung
@@ -149,10 +149,10 @@ Die Reihenfolge zählt.
 
 | Du willst… | Befehl |
 |------------|--------|
-| Dein Python prüfen | `python --version` |
-| Die REPL starten | `python` (verlassen mit `exit()`) |
-| Eine Zeile ausführen | `python -c "..."` |
-| Eine Datei ausführen | `python datei.py` |
+| Dein Python prüfen | `uv run python --version` |
+| Die REPL starten | `uv run python` (verlassen mit `exit()`) |
+| Eine Zeile ausführen | `uv run python -c "..."` |
+| Eine Datei ausführen | `uv run datei.py` |
 | Etwas ausgeben | `print(wert)` |
 
 ---

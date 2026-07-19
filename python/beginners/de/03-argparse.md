@@ -4,7 +4,7 @@
 
 Ein Programm wird nützlich, wenn die Person, die es ausführt, es steuern kann —
 so wie du in [Kapitel 01](01-commands-and-calls.md) die Shell gesteuert hast.
-`argparse` verwandelt die Wörter nach `python deinskript.py` in ordentliche,
+`argparse` verwandelt die Wörter nach `uv run deinskript.py` in ordentliche,
 benannte Werte.
 
 ## Was du lernst
@@ -46,9 +46,9 @@ print(greeting.upper() if args.shout else greeting)
 Führe es aus:
 
 ```sh
-python gruss.py Hänsel            # Hallo Hänsel
-python gruss.py Hänsel --shout    # HALLO HÄNSEL
-python gruss.py --help            # Hilfetext, für dich geschrieben
+uv run gruss.py Hänsel              # Hallo Hänsel
+uv run gruss.py Hänsel --shout      # HALLO HÄNSEL
+uv run gruss.py --help              # Hilfetext, für dich geschrieben
 ```
 
 ## Positional vs. optional
@@ -60,15 +60,15 @@ python gruss.py --help            # Hilfetext, für dich geschrieben
 Zwei praktische Arten optionaler Argumente:
 
 ```python
-parser.add_argument("--shout", action="store_true")  # ein Schalter: an/aus
-parser.add_argument("--hp", type=int, default=100)    # ein Wert, zu int gewandelt
+parser.add_argument("--shout", action="store_true")      # ein Schalter: an/aus
+parser.add_argument("--hp", type=int, default=100)       # ein Wert, zu int gewandelt
 ```
 
 `action="store_true"` macht einen Schalter, der `False` ist, außer die Nutzerin
 fügt ihn hinzu. `type=int` wandelt den Text `"25"` in die Zahl `25`.
 
 !!! tip "Du bekommst --help gratis"
-    Weil du jedes Argument beschrieben hast, gibt `python gruss.py --help` eine
+    Weil du jedes Argument beschrieben hast, gibt `uv run gruss.py --help` eine
     vollständige Benutzung aus. Gute Werkzeuge erklären sich selbst.
 
 ## Probier es
@@ -83,7 +83,7 @@ fügt ihn hinzu. `type=int` wandelt den Text `"25"` in die Zahl `25`.
     --8<-- "snippets/03-enter.py"
     ```
     ```sh
-    python enter.py Gretel --torch
+    uv run enter.py Gretel --torch
     ```
 
 ## Zusammenfassung

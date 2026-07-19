@@ -5,8 +5,9 @@ version: '3'
 # into the language pages at build time via Zensical's native snippets
 # (`--8<-- "snippets/NAME.py"`), configured in zensical.toml.
 
-vars:
-  ZENSICAL: zensical@0.0.50
+# Zensical's version lives in pyproject.toml / uv.lock, so `uv run` and the
+# Actions build cannot disagree about it. That is why there is no version var
+# here any more — one place for it, not two.
 
 tasks:
   default:
@@ -18,9 +19,9 @@ tasks:
   docs:build:
     desc: Build the site into site/
     cmds:
-      - uvx {{.ZENSICAL}} build --strict
+      - uv run zensical build --strict
 
   docs:serve:
     desc: Serve the site locally with live reload
     cmds:
-      - uvx {{.ZENSICAL}} serve
+      - uv run zensical serve

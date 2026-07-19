@@ -9,6 +9,17 @@ Before the code, the culture. Read the **[Manifest der Lernkultur](00-manifest.m
 — the guild's pledge on trust, the shared workbench, and asking questions
 without shame. It's the foundation everything else stands on.
 
+## Set up your workbench
+
+Before the first chapter, three short setup steps — you only do these once:
+
+1. **[Install uv](a__01-setup-uv.md)** — the one tool that manages everything
+2. **[Install Python](a__02-setup-python.md)** — the language itself
+3. **[Test your installation](a__03-test-installation.md)** — proving it works
+
+> Already worked through [GrimmSetup](https://github.com/TheGrimmClub/GrimmSetup)
+> on day one? Then this is done — start at chapter 01.
+
 ## The path
 
 The journey runs in eleven steps, each a short chapter:

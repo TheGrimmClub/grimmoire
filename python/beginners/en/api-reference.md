@@ -190,7 +190,7 @@ puzzles) come from the world content in `grimm__dungeon__mono/content/world/*.sy
 ```
 grimmoire (learn)            grimm__python__zero (build)       grimm__dungeon__mono (play)
 ─────────────────            ──────────────────────────       ───────────────────────────
-Actor / Dungeon / Game     → from grimm import Actor        → puzzles run python3 loesung.py
+Actor / Dungeon / Game     → from grimm import Actor        → puzzles run uv run loesung.py
                              Dungeon().enter() ─────────────→   (work dir seeded → import Actor)
 Dungeon().show()  ←───────── reads  ~/.grimm/save.syon  ←────  the game writes progress
 Game().grant(...).write()   → writes ~/.grimm/save.syon ────→  state.Load reads it back

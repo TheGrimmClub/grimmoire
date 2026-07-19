@@ -4,7 +4,7 @@
 
 A program gets useful when the person running it can steer it — the same way you
 steered the shell in [chapter 01](01-commands-and-calls.md). `argparse` turns the
-words after `python yourscript.py` into neat, named values.
+words after `uv run yourscript.py` into neat, named values.
 
 ## What you'll learn
 
@@ -44,9 +44,9 @@ print(greeting.upper() if args.shout else greeting)
 Run it:
 
 ```sh
-python greet.py Hänsel            # Hallo Hänsel
-python greet.py Hänsel --shout    # HALLO HÄNSEL
-python greet.py --help            # usage text, written for you
+uv run greet.py Hänsel              # Hallo Hänsel
+uv run greet.py Hänsel --shout      # HALLO HÄNSEL
+uv run greet.py --help              # usage text, written for you
 ```
 
 ## Positional vs. optional
@@ -58,15 +58,15 @@ python greet.py --help            # usage text, written for you
 Two handy kinds of optional argument:
 
 ```python
-parser.add_argument("--shout", action="store_true")  # a flag: on/off
-parser.add_argument("--hp", type=int, default=100)    # a value, converted to int
+parser.add_argument("--shout", action="store_true")      # a flag: on/off
+parser.add_argument("--hp", type=int, default=100)       # a value, converted to int
 ```
 
 `action="store_true"` makes a switch that's `False` unless the user adds it.
 `type=int` converts the text `"25"` into the number `25`.
 
 !!! tip "You get --help free"
-    Because you described each argument, `python greet.py --help` prints a full
+    Because you described each argument, `uv run greet.py --help` prints a full
     usage message. Good tools explain themselves.
 
 ## Try it
@@ -81,7 +81,7 @@ parser.add_argument("--hp", type=int, default=100)    # a value, converted to in
     --8<-- "snippets/03-enter.py"
     ```
     ```sh
-    python enter.py Gretel --torch
+    uv run enter.py Gretel --torch
     ```
 
 ## Recap

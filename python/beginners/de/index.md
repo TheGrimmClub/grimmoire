@@ -10,6 +10,18 @@ Vor dem Code die Kultur. Lies das **[Manifest der Lernkultur](00-manifest.md)** 
 das Gelöbnis der Gilde über Vertrauen, die gemeinsame Werkbank und das Fragen
 ohne Scham. Es ist das Fundament, auf dem alles andere steht.
 
+## Richte deine Werkbank ein
+
+Vor dem ersten Kapitel drei kurze Einrichtungsschritte — die machst du nur
+einmal:
+
+1. **[uv installieren](a__01-setup-uv.md)** — das eine Werkzeug für alles
+2. **[Python installieren](a__02-setup-python.md)** — die Sprache selbst
+3. **[Installation testen](a__03-test-installation.md)** — beweisen, dass es läuft
+
+> Schon an Tag eins [GrimmSetup](https://github.com/TheGrimmClub/GrimmSetup)
+> durchgearbeitet? Dann ist das erledigt — fang bei Kapitel 01 an.
+
 ## Der Pfad
 
 Die Reise verläuft in elf Schritten, jeder ein kurzes Kapitel:
