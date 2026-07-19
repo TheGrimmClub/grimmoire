@@ -31,17 +31,23 @@ Für den Moment reicht dieser eine Satz. Was es wirklich kann, lernst du in
 
 Öffne deine Shell und führe die Zeile für dein System aus.
 
-Auf **macOS oder Linux**:
+=== "macOS"
 
-```sh
-curl -LsSf https://astral.sh/uv/install.sh | sh
-```
+    ```sh
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    ```
 
-Auf **Windows**, in der PowerShell:
+=== "Linux"
 
-```powershell
-powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
-```
+    ```sh
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    ```
+
+=== "Windows (PowerShell)"
+
+    ```powershell
+    powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+    ```
 
 !!! note "Einen Befehl lesen, bevor du ihn ausführst"
     Ein Skript aus dem Internet in die Shell zu leiten ist bei
@@ -56,13 +62,40 @@ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | ie
 Schließe deine Shell und öffne eine **neue** — Installationsprogramme ändern
 deinen `PATH`, und eine alte Shell hat das nicht mitbekommen.
 
-```sh
-uv --version
-```
+??? note "What does this do?"
+    This is a simple version check.<br/>
+    Nearly all command line programs have this feature:
 
-```
-uv 0.9.29
-```
+    `{executable} --version`
+    
+    Some do use a subcommand for this:
+
+    `{executable} version`
+
+=== "macOS"
+    ```sh
+    uv --version
+    ```
+    
+    ```
+    uv 0.9.29
+    ```
+=== "Linux"
+    ```sh
+    uv --version
+    ```
+    
+    ```
+    uv 0.9.29
+    ```
+=== "Windows (PowerShell)"
+    ```sh
+    uv --version
+    ```
+    
+    ```
+    uv 0.9.29
+    ```
 
 Deine Nummer wird anders sein, und das ist in Ordnung. Irgendeine Antwort
 bedeutet: uv ist da.

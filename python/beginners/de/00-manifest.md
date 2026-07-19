@@ -1,10 +1,10 @@
 # Grimm Club — Manifest der Lernkultur
 
-*Ein Gelöbnis für die Gilde*
+*Ein Versprechen für die Gilde*
 
 ---
 
-## Fundament: Vertrauen
+## 1 Fundament: Vertrauen
 
 Vertrauen ist der Anfang des Lernens.
 

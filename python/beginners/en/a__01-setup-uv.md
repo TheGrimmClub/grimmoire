@@ -30,17 +30,23 @@ For now, that one sentence is enough. You'll meet what it can really do in
 
 Open your shell and run the line for your system.
 
-On **macOS or Linux**:
+=== "macOS"
 
-```sh
-curl -LsSf https://astral.sh/uv/install.sh | sh
-```
+    ```sh
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    ```
 
-On **Windows**, in PowerShell:
+=== "Linux"
 
-```powershell
-powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
-```
+    ```sh
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    ```
+
+=== "Windows (PowerShell)"
+
+    ```powershell
+    powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+    ```
 
 !!! note "Reading a command before you run it"
     Piping a script from the internet into your shell is normal for developer

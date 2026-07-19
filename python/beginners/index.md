@@ -5,14 +5,28 @@
 
 ---
 
-## Choose your language · Wähle deine Sprache
+<div class="grid cards" markdown>
 
-- **English** — from your first shell command to your own published package.
-  → [Start the path](en/index.md) · [Manifesto](en/00-manifest.md)
+-   ### Choose English 
 
-- **Deutsch** — vom ersten Shell-Befehl bis zum eigenen veröffentlichten Paket.
-  → [Zum Lernpfad](de/index.md) · [Manifest](de/00-manifest.md)
+    ---
+
+    From your first command in a shell to your own published package.
+
+    [Start the path](en/index.md) · [Manifesto](en/00-manifest.md)
+
+    !!! important "Before the code, the culture."
+
+-   ### Wähle Deutsch
+
+    ---
+
+    Vom ersten Shell-Befehl bis zum eigenen veröffentlichten Paket.
+
+    [Zum Lernpfad](de/index.md) · [Manifest](de/00-manifest.md)
+
+    !!! important "Vor dem Code die Kultur."
+
+</div>
 
 ---
-
-Before the code, the culture. Vor dem Code die Kultur.

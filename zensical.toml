@@ -51,6 +51,17 @@ nav = [
 [project.theme]
 name    = "material"
 language = "en"
+# Material expects features as a list of strings. Linked content tabs match by
+# their *label text*, so an OS must be spelled identically everywhere —
+# "macOS", not "MacOS" — or two tab sets are treated as unrelated and stop
+# syncing.
+features = [
+  "navigation.instant",
+  "navigation.tracking",
+  "navigation.top",
+  "content.code.copy",
+  "content.tabs.link",
+]
 
 [project.theme.palette]
 scheme  = "slate"
@@ -61,19 +72,35 @@ accent  = "amber"
 text = "Inter"
 code = "JetBrains Mono"
 
-[project.theme.features]
-navigation.instant  = true
-navigation.tracking = true
-navigation.top      = true
-content.code.copy   = true
-
 [project.markdown_extensions.pymdownx.highlight]
 anchor_linenums = true
 
 [project.markdown_extensions.pymdownx.superfences]
 [project.markdown_extensions.pymdownx.inlinehilite]
 [project.markdown_extensions.pymdownx.details]
+# Content tabs (`=== "macOS"`). alternate_style is what Material's tabs need;
+# without it the blocks render as literal `=== "..."` text.
+[project.markdown_extensions.pymdownx.tabbed]
+alternate_style = true
 [project.markdown_extensions.pymdownx.snippets]
 base_path = ["python/beginners"]
+# Grid cards on the landing page need both: md_in_html lets the wrapping
+# <div markdown> hold Markdown, attr_list carries the `grid cards` classes.
+[project.markdown_extensions.attr_list]
+[project.markdown_extensions.md_in_html]
 [project.markdown_extensions.admonition]
 [project.markdown_extensions.tables]
+
+# The language switcher in the header — a globe button, rather than making the
+# reader scroll to the other language's section in the sidebar. Zensical renders
+# it from partials/alternate.html whenever extra.alternate is present; `lang`
+# becomes the link's hreflang, which is also what search engines read.
+[[project.extra.alternate]]
+name = "English"
+link = "en/"
+lang = "en"
+
+[[project.extra.alternate]]
+name = "Deutsch"
+link = "de/"
+lang = "de"
